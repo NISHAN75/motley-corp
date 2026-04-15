@@ -1,142 +1,222 @@
-  @media (max-width: 1299px) {
-    /* === Header Variables === */
-    :root {
-        --menu-item-margin: 55px;
-    }
-  }
-  @media (max-width: 1199px) {
-      /* === Header Variables === */
-    :root {
-        --menu-item-margin: 45px;
-    }
-    .header-logo { padding-left: 0; }
-    
-  /* what we do section */
-    .service-card {
-      padding: 18px 10px;
-  }
-    .services-card-area .row {
-      --bs-gutter-x: 10px;
-  }
-  .section-bottom-info {
-    margin-top: 7vw;
+@media (max-width: 1299px) {
+
+	/* === Header Variables === */
+	:root {
+		--menu-item-margin: 55px;
+	}
+
+	/* our  expertise section */
+	.what-we-do-area {
+		margin-bottom: 10vw;
+	}
 }
 
+@media (max-width: 1199px) {
+
+	/* === Header Variables === */
+	:root {
+		--menu-item-margin: 45px;
+	}
+
+	.header-logo {
+		padding-left: 0;
+	}
+
+	/* what we do section */
+	.service-card {
+		padding: 18px 10px;
+	}
+
+	.services-card-area .row {
+		--bs-gutter-x: 10px;
+	}
+
+	.section-bottom-info {
+		margin-top: 7vw;
+	}
 
 
-  }
+	/* our  expertise section */
+	.why-choose-area .container>.row {
+		--bs-gutter-y: 8vw;
+		flex-direction: column;
+	}
 
-  @media (max-width: 991px) {
+	.why-choose-area .container>.row>.col {
+		width: 100%;
+	}
 
-    /* heading */
-    .banner-content-wrapper h1,
-    h1 {
-      font-size: 40px;
-    }
+	.why-choose-area .section-title-wrapper {
+		max-width: 100%;
+		text-align: center;
+	}
 
-    h2 {
-      font-size: 36px;
-    }
+	.why-choose-area .section-title-wrapper,
+	.why-choose-cards {
+		margin-right: auto;
+		margin-left: auto;
+	}
 
-    h3 {
-      font-size: 32px;
-    }
+	.why-choose-cards {
+		max-width: 800px;
+	}
 
-    h4 {
-      font-size: 28px;
-    }
-
-    h5 {
-      font-size: 22px;
-    }
-      .header-logo img { max-width: 200px; }
-      .header-area { padding: 15px 0; }
-      .header-fix { height: var(--header-height-md); }
-
-      /* banner section  */
-      .banner-inner-content p {
-          font-size: 18px;
-      }
-      .banner-logo img {
-          max-width: 120px;
-      }
-      .what-we-do-area .section-bottom-info .btn-1.version-2 ,
-      .btn-1 {
-      padding: 6.8px 17px;
-  }
+	.our-expertise-section {
+		padding: 8vw 0;
+	}
 
 
+}
+
+@media (max-width: 991px) {
+
+	/* heading */
+	.banner-content-wrapper h1,
+	h1 {
+		font-size: 40px;
+	}
+
+	h2 {
+		font-size: 36px;
+	}
+
+	h3 {
+		font-size: 32px;
+	}
+
+	h4 {
+		font-size: 28px;
+	}
+
+	h5 {
+		font-size: 22px;
+	}
+
+	.header-logo img {
+		max-width: 200px;
+	}
+
+	.header-area {
+		padding: 15px 0;
+	}
+
+	.header-fix {
+		height: var(--header-height-md);
+	}
+
+	/* banner section  */
+	.banner-inner-content p {
+		font-size: 18px;
+	}
+
+	.banner-logo img {
+		max-width: 120px;
+	}
+
+	.btn-1.version-2,
+	.what-we-do-area .section-bottom-info .btn-1.version-2,
+	.btn-1 {
+		padding: 6.8px 17px;
+	}
+
+	/* our  expertise section  */
+	.why-choose-cards .col-auto {
+		width: 50%;
+	}
+
+	.why-choose-cards .row {
+		--bs-gutter-x: 24px;
+		--bs-gutter-y: 35px;
+	}
 
 
-  }
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
 
 
-        /* heading */
-    .banner-content-wrapper h1,
-    h1 {
-      font-size: 36px;
-    }
+	/* heading */
+	.banner-content-wrapper h1,
+	h1 {
+		font-size: 36px;
+	}
 
-    h2 {
-      font-size: 32px;
-    }
+	h2 {
+		font-size: 32px;
+	}
 
-    h3 {
-      font-size: 30px;
-    }
+	h3 {
+		font-size: 30px;
+	}
 
-    h4 {
-      font-size: 24px;
-    }
+	h4 {
+		font-size: 24px;
+	}
 
-    h5 {
-      font-size: 20px;
-    }
-      .header-logo img { max-width: 180px; }
-      .what-we-do-area .section-bottom-info .btn-1.version-2 ,
-      .btn-1 {
-          font-size: 14px;
-          padding: 7.8px 14px;
-      }
+	h5 {
+		font-size: 20px;
+	}
 
-      /* banner section */
-      .banner-inner-content p {
-        font-size: 16px;
-      }
-      .banner-area {
-          padding: 70px 0;
-      }
-  }
+	.header-logo img {
+		max-width: 180px;
+	}
 
-  @media (max-width: 575px) {
-      .header-logo img { max-width: 150px; }
+	.btn-1.version-2,
+	.what-we-do-area .section-bottom-info .btn-1.version-2,
+	.btn-1 {
+		font-size: 14px;
+		padding: 7.8px 14px;
+	}
 
-        /* what we do section */
-        .service-card-img {
-          height: calc(100% - 15vw);
-        }
-  }
-  @media (max-width: 480px) {
-    
-        /* heading */
-    .banner-content-wrapper h1,
-      h1 {
-        font-size: 30px;
-      }
+	/* banner section */
+	.banner-inner-content p {
+		font-size: 16px;
+	}
 
-      h2 {
-        font-size: 28px;
-      }
+	.banner-area {
+		padding: 70px 0;
+	}
+}
 
-      h3 {
-        font-size: 26px;
-      }
+@media (max-width: 575px) {
+	.header-logo img {
+		max-width: 150px;
+	}
 
-      h4 {
-        font-size: 22px;
-      }
+	/* what we do section */
+	.service-card-img {
+		height: calc(100% - 15vw);
+	}
 
-      .header-logo img { max-width: 150px; }
-  }
+
+}
+
+@media (max-width: 480px) {
+
+	/* heading */
+	.banner-content-wrapper h1,
+	h1 {
+		font-size: 30px;
+	}
+
+	h2 {
+		font-size: 28px;
+	}
+
+	h3 {
+		font-size: 26px;
+	}
+
+	h4 {
+		font-size: 22px;
+	}
+
+	.header-logo img {
+		max-width: 150px;
+	}
+
+	/* our  expertise section */
+	.why-choose-cards .col-auto {
+		width: 100%;
+	}
+}
