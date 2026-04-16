@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="assets/css/main.css">
 		<link rel="stylesheet" href="assets/css/responsive.css">
 	</head>
-	<body>
+	<body data-overlayscrollbars-initialize>
 		<!-- Mobile Offcanvas Menu -->                                                                                                                                                                          
 		<div class="offcanvas header-offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 			<div class="offcanvas-header justify-content-end">                                                                                                                                                  
@@ -67,7 +67,7 @@
 			<section class="banner-area position-relative d-flex align-items-center justify-content-center bg-fix" style="background-image: url('assets/image/banner/banner-img.jpg');">
 				<div class="container position-relative z-2">
 					<div class="banner-content-wrapper text-center mx-auto">
-						<div class="banner-logo mx-auto mb-1">
+						<div class="banner-logo mx-auto mb-3 mb-lg-mb-1">
 							<img src="assets/image/banner/banner-logo.svg" alt="...">
 						</div>
 						<h1 class="banner-title fw-bold text-white mb-3 mb-md-1">Demolishing the Past to Build the Future</h1>
@@ -96,7 +96,7 @@
 						</div>
 						<div class="services-card-area">
 							<div class="row justify-content-center">
-								<div class="col-xs-6 col-sm-6 col-md-4 col-lg">
+								<div class=" col-sm-6 col-md-4 col-lg">
 									<div class="service-card position-relative z-3 ">
 										<div class="service-card-img service-card-img-1 position-absolute bg-fix"
 											style="background-image: url('/assets/image/services/services-card-01.png');">
@@ -107,7 +107,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-xs-6 col-sm-6 col-md-4 col-lg">
+								<div class=" col-sm-6 col-md-4 col-lg">
 									<div class="service-card position-relative z-3 version-2">
 										<div class="service-card-img service-card-img-2 position-absolute bg-fix"
 											style="background-image: url('/assets/image/services/services-card-02.png');">
@@ -118,7 +118,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-6 col-md-4 col-lg">
+								<div class=" col-sm-6 col-md-4 col-lg">
 									<div class="service-card position-relative z-3 ">
 										<div class="service-card-img service-card-img-3 position-absolute bg-fix"
 											style="background-image: url('/assets/image/services/services-card-03.png');">
@@ -129,7 +129,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-6 col-md-4 col-lg">
+								<div class=" col-sm-6 col-md-4 col-lg">
 									<div class="service-card position-relative z-3 version-2">
 										<div class="service-card-img service-card-img-4 position-absolute bg-fix"
 											style="background-image: url('/assets/image/services/services-card-04.png');">
@@ -140,7 +140,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-6 col-md-4 col-lg">
+								<div class=" col-sm-6 col-md-4 col-lg">
 									<div class="service-card position-relative z-3 ">
 										<div class="service-card-img service-card-img-5 position-absolute bg-fix"
 											style="background-image: url('/assets/image/services/services-card-05.png');">
@@ -236,55 +236,36 @@
 			</section>
 		</main>
 		<!-- main -->
-<!-- footer section start -->
-<footer class="footer-area position-relative z-3 overflow-hidden">
-	<div class="container">
-		<div class="footer-top">
-			<div class="row align-items-center">
-				<div class="col-lg-4">
-					<div class="footer-logo mb-4 mb-lg-0">
-						<a href="index.html">
-							<img src="assets/image/header-logo.svg" alt="Motley Corp Logo">
-						</a>
+		<!-- footer section start -->
+		<footer class="footer-area position-relative z-3 overflow-hidden">
+			<div class="container">
+				<div class="footer-top">
+					<div class="row align-items-center">
+						<div class="col col-auto">
+							<div class="footer-logo text-center text-md-start mb-4 mb-md-0">
+								<a href="index.html">
+								<img src="assets/image/footer-logo.svg" alt="Motley Corp Logo">
+								</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="footer-links text-center text-md-end">
+								<ul class="list-unstyled mb-0">
+									<li><a href="#">About Us</a></li>
+									<li><a href="#">Services</a></li>
+									<li><a href="#">Who We Serve</a></li>
+									<li><a href="#">Contact</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-4">
-					<div class="footer-links text-center">
-						<ul class="list-unstyled mb-0">
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">Services</a></li>
-							<li><a href="#">Who We Serve</a></li>
-							<li><a href="#">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="footer-contact text-lg-end">
-						<p class="mb-1"><a href="mailto:info@motleycorp.com">info@motleycorp.com</a></p>
-						<p class="mb-0"><a href="tel:+1234567890">+1 (234) 567-890</a></p>
-					</div>
+				<div class="footer-bottom mb-p text-center text-md-start">
+					<p>&copy; 2026 Motley Corp. All rights reserved.</p>
 				</div>
 			</div>
-		</div>
-		<div class="footer-bottom mt-4 pt-4">
-			<div class="row align-items-center">
-				<div class="col-md-6">
-					<p class="copyright mb-0">&copy; 2026 Motley Corp. All rights reserved.</p>
-				</div>
-				<div class="col-md-6">
-					<div class="social-links text-md-end">
-						<ul class="list-unstyled d-flex justify-content-md-end gap-3 mb-0">
-							<li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="assets/image/footer/linkedin-icon.svg" alt="LinkedIn"></a></li>
-							<li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="assets/image/footer/facebook-icon.svg" alt="Facebook"></a></li>
-							<li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="assets/image/footer/instagram-icon.svg" alt="Instagram"></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
-<!-- footer section end -->
+		</footer>
+		<!-- footer section end -->
 		<!-- js -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/bootstrap.bundle.min.js"></script>
