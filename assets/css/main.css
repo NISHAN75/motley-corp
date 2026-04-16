@@ -42,13 +42,27 @@
 	--color-border-input: #000;
 	--color-shadow-header: rgba(0, 0, 0, 0.1);
 
+	/* Font Sizes - Headings */
+	--font-size-h1: 48px;
+	--font-size-h2: 40px;
+	--font-size-h3: 36px;
+	--font-size-h4: 30px;
+	--font-size-h5: 24px;
+	--font-size-h6: 20px;
+
+	/* Font Sizes - UI */
+	--font-size-base: 16px;
+	--font-size-sm: 12px;
+	--font-size-banner-h1: 52px;
+	--font-size-banner-p: 20px;
+
 	/* Header (existing variables kept, now referencing color vars) */
 	--header-padding: 22px;
 	--header-bg: var(--color-bg-white);
 	--header-height: 92px;
 	--header-height-md: 73px;
 	--brand-color: var(--color-brand-primary);
-	--accent-color: var(--color-brand-green);
+	--accent-color: var(--color-brand-accent);
 	--menu-color: var(--color-text-dark);
 	--hamburger-size: 43px;
 	--logo-width: 206px;
@@ -68,7 +82,7 @@
 /* Global body styles */
 body {
 	font-family: "Montserrat", sans-serif;
-	font-size: 16px;
+	font-size: var(--font-size-base);
 	line-height: 1.5;
 	color: var(--color-text-body);
 	background-color: var(--color-bg-white);
@@ -114,12 +128,12 @@ h1, h2, h3, h4, h5, h6 {
 	color: var(--color-text-dark);
 }
 
-h1 { font-size: 48px; }
-h2 { font-size: 40px; }
-h3 { font-size: 36px; }
-h4 { font-size: 30px; }
-h5 { font-size: 24px; }
-h6 { font-size: 20px; }
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); }
+h5 { font-size: var(--font-size-h5); }
+h6 { font-size: var(--font-size-h6); }
 
 /* Remove last paragraph margin */
 .animation-line p:last-child,
@@ -187,7 +201,7 @@ textarea {
 	border: 1px solid var(--color-border-input);
 	color: var(--color-text-placeholder);
 	font-family: "Montserrat", sans-serif;
-	font-size: 16px;
+	font-size: var(--font-size-base);
 	font-weight: 400;
 	line-height: 1.5;
 	opacity: 1;
@@ -209,7 +223,7 @@ textarea:focus {
 ::placeholder {
 	color: var(--color-text-placeholder);
 	font-family: "Montserrat", sans-serif;
-	font-size: 16px;
+	font-size: var(--font-size-base);
 	font-weight: 400;
 	line-height: 1.5;
 }
@@ -224,7 +238,7 @@ textarea:focus {
 	padding: 10.8px 22px;
 	border-radius: 29.5px;
 
-	font-size: 16px;
+	font-size: var(--font-size-base);
 	font-weight: 700;
 	color: var(--color-text-white);
 
@@ -336,7 +350,7 @@ textarea:focus {
 .footer-links ul li a,
 .mobile-nav ul li a,
 .main-menu ul li a {
-	font-size: 16px;
+	font-size: var(--font-size-base);
 	font-weight: 500;
 	color: var(--menu-color);
 	transition: all 0.3s linear;
@@ -377,10 +391,8 @@ textarea:focus {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-
 	width: 27px;
 	height: 4px;
-
 	background-color: var(--color-text-white);
 	transition: all 0.3s linear;
 }
@@ -407,15 +419,12 @@ textarea:focus {
 .header-offcanvas .btn-close {
 	width: var(--hamburger-size);
 	height: var(--hamburger-size);
-
 	background-color: var(--brand-color);
 	border: 0;
 	border-radius: 0;
-
 	padding: 0;
 	margin: 0;
 	opacity: 1;
-
 	transition: background-color 0.3s linear;
 }
 
@@ -466,7 +475,6 @@ textarea:focus {
 	content: "";
 	position: absolute;
 	inset: 0;
-
 	background: var(--color-bg-overlay);
 	z-index: 1;
 }
@@ -480,7 +488,7 @@ textarea:focus {
 }
 
 .banner-content-wrapper h1 {
-	font-size: 52px;
+	font-size: var(--font-size-banner-h1);
 }
 
 .banner-inner-content {
@@ -488,7 +496,7 @@ textarea:focus {
 }
 
 .banner-inner-content p {
-	font-size: 20px;
+	font-size: var(--font-size-banner-p);
 	font-weight: 600;
 	color: var(--color-text-white);
 }
@@ -558,7 +566,7 @@ textarea:focus {
 }
 
 .service-card p {
-	font-size: 12px;
+	font-size: var(--font-size-sm);
 	line-height: 130%;
 	color: var(--color-text-white);
 	margin-bottom: 0;
@@ -660,7 +668,7 @@ textarea:focus {
 
 /* Text */
 .choose-card-content h6 {
-	font-size: 16px;
+	font-size: var(--font-size-base);
 	color: var(--color-text-body);
 }
 
@@ -713,7 +721,7 @@ textarea:focus {
 }
 
 .footer-bottom p {
-	font-size: 12px;
+	font-size: var(--font-size-sm);
 	font-weight: 500;
 	line-height: 1.2;
 }
