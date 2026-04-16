@@ -32,6 +32,10 @@
 	.footer-logo {
 		padding-left: 0;
 	}
+	/* about container section start */
+	.mission-section .mission-img, .our-story-area .our-story-des, .our-story-area .section-title-wrapper {
+		padding-left: 0;
+	}
 }
 
 
@@ -93,6 +97,14 @@
 	.our-expertise-section {
 		padding: 8vw 0;
 	}
+	
+	/* about container section start */
+	.values-section, .our-story-area {
+		margin-bottom: 8vw;
+	}
+	.mission-content {
+		margin-left: 30px;
+	}
 }
 
 
@@ -126,6 +138,7 @@
 	}
 
 	/* Buttons (consistent scaling) */
+	.our-story-area .section-title-wrapper .btn-1.version-2 , 
 	.btn-1,
 	.btn-1.version-2,
 	.what-we-do-area .section-bottom-info .btn-1.version-2 {
@@ -140,6 +153,24 @@
 	.why-choose-cards .row {
 		--bs-gutter-x: 24px;
 		--bs-gutter-y: 35px;
+	}
+	/* about container section start */
+	.about-container-section {
+		padding: 8vw 0;
+	}
+	.mission-section .col {
+		flex: 1 0 100%;
+	}
+	.mission-content ,
+	.mission-section .mission-img {
+		max-width: 100%;
+		margin: 0;
+	}
+	.value-card-wrapper {
+		margin-top: 8vw;
+	}
+	.value-card h5 {
+		margin-bottom: 3vw;
 	}
 }
 
@@ -168,6 +199,7 @@
 	}
 
 	/* Buttons */
+	.our-story-area .section-title-wrapper .btn-1.version-2 ,
 	.btn-1,
 	.btn-1.version-2,
 	.what-we-do-area .section-bottom-info .btn-1.version-2 {
@@ -175,6 +207,7 @@
 	}
 
 	/* Banner */
+	.banner-area.secondary-banner.thirdary-banner ,
 	.banner-area {
 		padding: 70px 0;
 	}
@@ -237,6 +270,11 @@
 	/* Footer links */
 	.footer-links ul li a {
 		font-size: var(--font-size-sm);
+	}
+
+	/* about container section start */
+	.values-section, .our-story-area {
+		margin-bottom: 12vw;
 	}
 }
 

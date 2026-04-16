@@ -43,6 +43,66 @@
             });
         });
 
+
+        // text animation
+        gsap.registerPlugin(ScrollTrigger, SplitText);
+        gsap.utils.toArray(".hero-title").forEach((element) => {
+            // Wrap each word to prevent line breaks between characters
+            const originalText = element.textContent;
+            const words = originalText.trim().split(/\s+/);
+            element.innerHTML = words
+                .map(word => `<span class="word-wrap">${word}</span>`)
+                .join(' ');
+
+            const split = new SplitText(element, { type: "chars", tag: "span" });
+
+            gsap.set(split.chars, {
+                display: "inline-block",
+                y: 80,
+                opacity: 0,
+                force3D: true
+            });
+
+            gsap.to(split.chars, {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.03,
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    // markers: true,
+                    toggleActions: "play reverse play reverse"
+                }
+            });
+        });
+        gsap.utils.toArray(".animation-line").forEach((element) => {
+            const delay = parseFloat(element.getAttribute("animation-dealy")) || 0;
+            
+            gsap.fromTo(
+                element,
+                {
+                    y: 50,
+                    opacity: 0,
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    delay: delay,        // ← dynamic delay from attribute
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: element,
+                         start: "top 98%",
+                        // markers: true,
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+        });
+
         // lenis
         // Initialize a new Lenis instance for smooth scrolling
         const lenis = new Lenis();
@@ -73,5 +133,7 @@
                 $('.header-area').removeClass('active');
             }
         });
+
+
 
 })(jQuery);
