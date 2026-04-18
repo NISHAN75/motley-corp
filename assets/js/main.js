@@ -24,6 +24,94 @@
             marginTop: ''
         });
     });
+
+    // process section animation
+    function initProcessAnimations() {
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 768px)", function () {
+
+            // Process Line Animation
+            gsap.fromTo(".process-line",
+                { height: 0 },
+                {
+                    height: "100%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".process-timeline",
+                        start: "top 80%",
+                        end: "bottom 70%",
+                        scrub: 1,
+                    },
+                }
+            );
+
+            // Process Dots Animation
+            $(".process-dot").each(function () {
+                gsap.from(this, {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: this,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse",
+                    },
+                });
+            });
+
+            // Process Items Animation
+            $(".process-item").each(function () {
+                const item = this;
+                const img = $(item).find(".process-img")[0];
+                const content = $(item).find(".process-content")[0];
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse",
+                    },
+                });
+
+                tl.from(img, {
+                    x: -50,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                })
+                .from(content, {
+                    x: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                }, "-=0.4");
+            });
+
+        });
+    }
+
+    // window load → jQuery version
+    $(window).on("load", function () {
+        initProcessAnimations();
+    });
+
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            ScrollTrigger.refresh();
+            // initProcessAnimations(); 
+        }, 250);
+    });
+
+
+
+
+
      // OverlayScrollbars
         const {
             OverlayScrollbars,
@@ -42,6 +130,8 @@
                 scrollBehavior: 'smooth',
             });
         });
+
+        
 
 
         // text animation
@@ -133,6 +223,8 @@
                 $('.header-area').removeClass('active');
             }
         });
+
+
 
 
 

@@ -105,6 +105,10 @@
 	.mission-content {
 		margin-left: 30px;
 	}
+	/* direct section area  */
+	.direact-shpae-img {
+		margin-left: 0;
+	}
 }
 
 
@@ -130,7 +134,7 @@
 	}
 
 	.header-area {
-		padding: 15px 0;
+		padding: 13px 0;
 	}
 
 	.header-fix {
@@ -172,6 +176,29 @@
 	.value-card h5 {
 		margin-bottom: 3vw;
 	}
+	/* core services */
+	.core-services-content {
+		padding: 20px 15px;
+	}
+	/* =========================
+	OUR PROCESS SECTION
+	========================= */
+	.process-timeline {
+		margin-top: 50px;
+	}
+	.our-process-section .section-bottom-info {
+		margin: 10vw 0;
+	}
+	/* contact form  */
+	.contact-area {
+		padding: 35px 0;
+	}
+	.contact-wrapper {
+		padding: 40px 30px;
+	}
+	
+
+
 }
 
 
@@ -207,15 +234,35 @@
 	}
 
 	/* Banner */
+	.our-core-services ,
 	.banner-area.secondary-banner.thirdary-banner ,
 	.banner-area {
 		padding: 70px 0;
 	}
 
 	/* Footer layout (stacked columns) */
+	.process-item > div ,
 	.footer-top .col {
 		flex-basis: 100%;
 	}
+	/* =========================
+	OUR PROCESS SECTION
+	========================= */
+	.process-item {
+		flex-wrap: wrap;
+	}
+	.process-content ,
+	.process-img img {
+		max-width: 100%;
+		width: 100%;
+	}
+	.process-item {
+		margin-bottom: 5vw;
+	}
+	.process-timeline {
+		margin-top: 8vw;
+	}
+
 }
 
 
@@ -238,6 +285,20 @@
 	/* Menu spacing */
 	:root {
 		--menu-item-margin: 20px;
+	}
+	/* direct section start */
+	.direct-area {
+		padding: 40px 0;
+	}
+	.direct-area .hero-title {
+		max-width: 100%;
+	}
+	.direct-contact-info{
+		margin-left: 0px;
+	}
+	/* contact form  */
+	.contact-wrapper {
+		padding: 30px 15px;
 	}
 }
 
@@ -275,6 +336,12 @@
 	/* about container section start */
 	.values-section, .our-story-area {
 		margin-bottom: 12vw;
+	}
+	/* =========================
+	OUR PROCESS SECTION
+	========================= */
+	.process-item {
+		margin-bottom: 7vw;
 	}
 }
 
