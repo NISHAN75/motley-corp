@@ -135,6 +135,7 @@
 	/* --------- SPACING & SIZING --------- */
 	--size-button-padding-y: 11.8px;
 	--size-button-padding-x: 22px;
+	--size-button-padding-md-x: 30px;
 	--size-button-padding-sm-y: 6.8px;
 	--size-button-padding-sm-x: 17px;
 	--size-button-padding-xs-y: 7.8px;
@@ -999,6 +1000,11 @@ textarea:focus {
 .why-choose-area .section-title-wrapper {
 	max-width: 292px;
 }
+.why-choose-area .btn-1{
+	font-weight: var(--font-weight-regular);
+	padding: var(--size-button-padding-y) var(--size-button-padding-md-x);
+}
+
 
 /* Cards container (right side) */
 .why-choose-cards {
@@ -1045,12 +1051,10 @@ textarea:focus {
 
 /* Background decorative shape */
 .why-choose-bg-shape {
-	position: absolute;
 	left: 0;
 	bottom: 0;
 	width: 100%;
 	height: clamp(600px, 30vw, 810px);
-	background-image: url('/assets/image/choose.png');
 	z-index: var(--z-negative);
 }
 
@@ -1099,7 +1103,7 @@ textarea:focus {
 }
 
 .our-story-des {
-	margin-top: 33px;
+	margin-top: 43px;
 }
 
 /* Grid spacing within story section */
