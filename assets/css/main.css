@@ -1,52 +1,84 @@
-/* Google Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* =========================================================
-   CSS INDEX
+   MAIN STYLESHEET
    ---------------------------------------------------------
-   1. Default / Reset Styles
-   2. Typography
-   3. Utilities
-   4. Forms
-   5. Buttons
-   6. Header
-   7. Banner
-   8. Sections (Expertise, What We Do, Why Choose)
-   9. Footer
+   This stylesheet defines the core visual design system
+   for the website, including typography, color scheme,
+   components, and layout patterns.
+   
+   Organized Sections:
+   1. Imports & CSS Variables
+   2. Reset & Base Styles
+   3. Typography
+   4. Utilities & Helpers
+   5. Forms & Inputs
+   6. Buttons
+   7. Header & Navigation
+   8. Navigation (Hamburger & Mobile)
+   9. Offcanvas Menu
+   10. Banner Sections
+   11. Main Content Sections
+   12. About & Company Pages
+   13. Services & Cards
+   14. Process Timeline
+   15. Contact & Direct Contact
+   16. Footer
    ========================================================= */
 
 
-/* =========================
-   CSS COLOR VARIABLES
-   ========================= */
+/* =========================================================
+   1. GOOGLE FONT IMPORT
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* =========================================================
+   2. ROOT CSS VARIABLES
+   =========================================================
+   
+   Comprehensive design system variables covering colors,
+   typography, spacing, transitions, sizing, and layout.
+   All values defined here for easy theme updates and
+   consistent design implementation.
+   
+   ========================================================= */
 
 :root {
-	/* Brand Colors */
+
+	/* --------- BRAND COLORS --------- */
 	--color-brand-primary: #0F256C;
 	--color-brand-accent: #91AFEF;
 	--color-brand-green: #94C949;
 	--color-brand-gold: #C5964A;
-	--color-brand-gold-light:#EBD4A4;
+	--color-brand-gold-light: #EBD4A4;
 
-	/* Text Colors */
+	/* --------- TEXT COLORS --------- */
 	--color-text-body: #373C4D;
 	--color-text-dark: #000;
 	--color-text-white: #FFF;
 	--color-text-placeholder: rgba(80, 80, 80, 0.50);
 
-	/* Background Colors */
+	/* --------- BACKGROUND COLORS --------- */
 	--color-bg-white: #fff;
 	--color-bg-black: #000;
 	--color-bg-overlay: rgba(0, 0, 0, 0.5);
 
-	/* UI Colors */
+	/* --------- UI & BORDER COLORS --------- */
 	--color-scrollbar: #4C6DB4;
 	--color-border-input: #000;
 	--color-border-light: #B5C7CF;
 	--color-shadow-header: rgba(0, 0, 0, 0.1);
 
+	/* --------- FONT FAMILIES --------- */
+	--font-family-primary: "Montserrat", sans-serif;
 
-	/* Font Sizes - Headings */
+	/* --------- FONT WEIGHTS --------- */
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+
+	/* --------- FONT SIZES - HEADINGS --------- */
 	--font-size-h1: 48px;
 	--font-size-h2: 40px;
 	--font-size-h3: 36px;
@@ -54,52 +86,189 @@
 	--font-size-h5: 24px;
 	--font-size-h6: 20px;
 
-	/* Font Sizes - UI */
+	/* --------- FONT SIZES - UI & BODY --------- */
 	--font-size-base: 16px;
 	--font-size-md: 14px;
 	--font-size-sm: 12px;
 	--font-size-banner-h1: 52px;
 	--font-size-banner-p: 20px;
 
-	/* Header (existing variables kept, now referencing color vars) */
+	/* --------- LINE HEIGHTS --------- */
+	--line-height-tight: 1.2;
+	--line-height-normal: 1.3;
+	--line-height-relaxed: 1.4;
+	--line-height-body: 1.5;
+	--line-height-percentage: 130%;
+	--line-height-generous: 1.78;
+
+	/* --------- TRANSITIONS --------- */
+	--transition-default: all 0.3s linear;
+	--transition-color: background-color 0.3s linear;
+
+	/* --------- Z-INDEX SCALE --------- */
+	--z-negative: -1;
+	--z-base: 1;
+	--z-dropdown: 2;
+	--z-sticky: 4;
+	--z-fixed: 5;
+	--z-modal: 6;
+	--z-tooltip: 7;
+	--z-header: 999;
+
+	/* --------- BORDER RADIUS --------- */
+	--radius-sm: 4px;
+	--radius-md: 9px;
+	--radius-lg: 14px;
+	--radius-xl: 15px;
+	--radius-2xl: 17px;
+	--radius-pill: 29.5px;
+	--radius-full: 50%;
+
+	/* --------- OPACITY VALUES --------- */
+	--opacity-subtle: 0.05;
+	--opacity-light: 0.1;
+	--opacity-low: 0.3;
+	--opacity-medium: 0.4;
+	--opacity-half: 0.5;
+	--opacity-full: 1;
+
+	/* --------- SPACING & SIZING --------- */
+	--size-button-padding-y: 11.8px;
+	--size-button-padding-x: 22px;
+	--size-button-padding-sm-y: 6.8px;
+	--size-button-padding-sm-x: 17px;
+	--size-button-padding-xs-y: 7.8px;
+	--size-button-padding-xs-x: 14px;
+
+	/* --------- GAP & SPACING --------- */
+	--gap-xs: 11px;
+	--gap-sm: 14px;
+	--gap-md: 22px;
+	--gap-lg: 29px;
+	--gap-xl: 50px;
+
+	/* --------- PADDING SIZES --------- */
+	--padding-xs: 4px 12px;
+	--padding-sm: 20px;
+	--padding-md: 30px 15px;
+	--padding-lg: 40px 30px;
+	--padding-xl: 40px 60px 67px 60px;
+	--padding-list: 20px 31px;
+
+	/* --------- ICON SIZES --------- */
+	--icon-size-small: 30px;
+	--icon-size-medium: 59px;
+
+	/* --------- MISC SIZING --------- */
+	--border-width-thin: 0.5px;
+	--border-width-normal: 1px;
+	--border-width-thick: 2px;
+	--line-width-divider: 2px;
+
+	/* --------- HEADER LAYOUT VARIABLES --------- */
 	--header-padding: 22px;
 	--header-bg: var(--color-bg-white);
 	--header-height: 92px;
 	--header-height-md: 73px;
+	--header-height-sm: 73px;
 	--brand-color: var(--color-brand-primary);
 	--accent-color: var(--color-brand-accent);
 	--menu-color: var(--color-text-dark);
 	--hamburger-size: 43px;
+	--hamburger-line-width: 27px;
+	--hamburger-line-height: 4px;
+	--hamburger-line-height-close: 5px;
 	--logo-width: 206px;
 	--menu-item-margin: 73px;
+
+	/* --------- CONTAINER SIZES --------- */
+	--container-max-width: 1228px;
+	--container-header-width: 1308px;
+	--container-wide: 1360px;
+	--container-expertise: 1228px;
+	--container-why-choose: 1210px;
+	--container-services: 1136px;
+	--container-process: 804px;
+	--container-direct: 918px;
+	--container-about: 1240px;
+	--container-values: 1296px;
+
+	/* --------- MODAL & FORM SIZING --------- */
+	--form-wrapper-max-width: 705px;
+	--form-padding: 40px 60px 67px 60px;
+	--form-gutter-y: 16px;
+
+	/* --------- CARD SIZING --------- */
+	--card-border-radius: 17px;
+	--card-banner-height: 180px;
+	--service-card-min-height: clamp(400px, 30vw, 439px);
+	--service-card-img-height-1: 282px;
+	--service-card-img-height-2: 272px;
+	--service-card-img-height-3: 280px;
+	--service-card-img-height-4: 261px;
+	--service-card-img-height-5: 293px;
+	--service-card-img-height-6: 318px;
+	--service-card-img-height-7: 303px;
+	--service-card-img-height-8: 298px;
+
+	/* --------- BANNER SIZING --------- */
+	--banner-padding: 49px 0 128px;
+	--banner-padding-secondary: 100px 0;
+	--banner-padding-tertiary: 55px 0 115px;
+	--banner-min-height-secondary: clamp(200px, 30vw, 397px);
+	--banner-min-height-tertiary: clamp(200px, 30vw, 425px);
+
+	/* --------- SECTION PADDING --------- */
+	--section-padding-xl: 75px 0 143px;
+	--section-padding-lg: 91px 0 128px;
+	--section-padding-md: 64px 0 85px;
+	--section-padding-sm: 34px 0 41px;
+	--section-spacing-mb: 130px;
+
+	/* --------- PROCESS TIMELINE SIZING --------- */
+	--process-gap: 22px;
+	--process-margin-bottom: 45px;
+	--process-content-max-width: 327px;
+	--process-image-max-width: 348px;
+	--process-image-height: 130px;
+	--process-dot-size: 17px;
+
+	/* --------- SHADOW VALUES --------- */
+	--shadow-header: 0 2px 20px var(--color-shadow-header);
 }
 
 
-/* =========================
-   1. DEFAULT / RESET
-   ========================= */
+/* =========================================================
+   3. RESET & BASE STYLES
+   =========================================================
+   
+   Remove default browser styles and establish consistent
+   defaults for all elements.
+   
+   ========================================================= */
 
-/* Base font utility */
+/* Montserrat font utility class */
 .tk-montserrat- {
-	font-family: "Montserrat", sans-serif;
+	font-family: var(--font-family-primary);
 }
 
-/* Global body styles */
+/* Global body defaults */
 body {
-	font-family: "Montserrat", sans-serif;
+	font-family: var(--font-family-primary);
 	font-size: var(--font-size-base);
-	line-height: 1.5;
+	line-height: var(--line-height-body);
 	color: var(--color-text-body);
-	font-weight: 400;
+	font-weight: var(--font-weight-regular);
 	background-color: var(--color-bg-white);
 }
 
+/* Image responsive defaults */
 img {
 	max-width: 100%;
 	height: auto;
 }
 
-/* Link reset */
+/* Reset link defaults */
 a {
 	text-decoration: none;
 	color: var(--color-text-dark);
@@ -109,31 +278,37 @@ a:hover {
 	color: var(--color-text-dark);
 }
 
-/* Background helper */
+/* Background image helper for cover patterns */
 .bg-fix {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-/* Container override */
+/* Bootstrap container override */
 .container {
-	max-width: 1228px;
+	max-width: var(--container-max-width);
 }
 
 
-/* =========================
-   2. TYPOGRAPHY
-   ========================= */
+/* =========================================================
+   4. TYPOGRAPHY
+   =========================================================
+   
+   Heading styles and text formatting rules for consistent
+   typographic hierarchy across the site.
+   
+   ========================================================= */
 
-/* Heading styles */
+/* Heading defaults (h1–h6) */
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Montserrat", sans-serif;
-	font-weight: 700;
-	line-height: 1.2;
+	font-family: var(--font-family-primary);
+	font-weight: var(--font-weight-bold);
+	line-height: var(--line-height-tight);
 	color: var(--color-text-dark);
 }
 
+/* Individual heading sizes */
 h1 { font-size: var(--font-size-h1); }
 h2 { font-size: var(--font-size-h2); }
 h3 { font-size: var(--font-size-h3); }
@@ -141,54 +316,73 @@ h4 { font-size: var(--font-size-h4); }
 h5 { font-size: var(--font-size-h5); }
 h6 { font-size: var(--font-size-h6); }
 
-/* Remove last paragraph margin */
-
+/* Remove margin from last paragraph in container */
 .mb-p p:last-child {
 	margin-bottom: 0;
 }
 
 
-/* =========================
-   3. UTILITIES
-   ========================= */
+/* =========================================================
+   5. UTILITIES & HELPERS
+   =========================================================
+   
+   Reusable utility classes for layout, positioning,
+   background colors, and visual effects.
+   
+   ========================================================= */
 
-/* Z-index helpers */
-.z-4 { z-index: 4 !important; }
-.z-5 { z-index: 5 !important; }
-.z-6 { z-index: 6 !important; }
-.z-7 { z-index: 7 !important; }
-/* background color  */
-.primary-bg{
+/* Z-index stacking context helpers */
+.z-4 { z-index: var(--z-sticky) !important; }
+.z-5 { z-index: var(--z-fixed) !important; }
+.z-6 { z-index: var(--z-modal) !important; }
+.z-7 { z-index: var(--z-tooltip) !important; }
+
+/* Background color utility classes */
+.primary-bg {
 	background-color: var(--color-brand-primary) !important;
 }
-.accent-bg{
+
+.accent-bg {
 	background-color: var(--color-brand-accent) !important;
 }
-.gold-bg{
-	background-color:var(--color-brand-gold) !important;
+
+.gold-bg {
+	background-color: var(--color-brand-gold) !important;
 }
 
-/* Scrollbar customization */
+/* Custom scrollbar styling */
 .os-scrollbar-handle {
 	background: var(--color-scrollbar);
 }
+
 body > .os-scrollbar {
-	z-index: 999;
+	z-index: var(--z-header);
 }
+
+/* Hero title animation helpers */
 .hero-title {
-  overflow: hidden;
+	overflow: hidden;
 }
+
 .hero-title .word-wrap {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top;
 }
 .hero-title span {
-  will-change: transform, opacity;
+	will-change: transform, opacity;
 }
-/* =========================
-   LENIS (Smooth Scroll)
-   ========================= */
+
+
+/* =========================================================
+   6. SMOOTH SCROLL LIBRARY (LENIS)
+   =========================================================
+   
+   Styles for the Lenis smooth scrolling library.
+   Ensures smooth scroll behavior across browsers.
+   
+   ========================================================= */
 
 html.lenis,
 html.lenis body {
@@ -208,10 +402,16 @@ html.lenis body {
 }
 
 
-/* =========================
-   4. FORMS
-   ========================= */
+/* =========================================================
+   7. FORMS & INPUT ELEMENTS
+   =========================================================
+   
+   Styling for form controls including text inputs,
+   textareas, and focus states.
+   
+   ========================================================= */
 
+/* Input field defaults */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -220,95 +420,108 @@ input[type="password"],
 input[type="url"],
 textarea {
 	width: 100%;
-	padding:4px 12px;
+	padding: var(--padding-xs);
 	background: var(--color-bg-white);
-	border: 0.5px solid var(--color-border-light);
+	border: var(--border-width-thin) solid var(--color-border-light);
 	color: var(--color-border-input);
-	font-family: "Montserrat", sans-serif;
+	font-family: var(--font-family-primary);
 	font-size: var(--font-size-base);
-	font-weight: 400;
-	line-height: 1.5;
-	opacity: 1;
-	border-radius: 4px;
+	font-weight: var(--font-weight-regular);
+	line-height: var(--line-height-body);
+	opacity: var(--opacity-full);
+	border-radius: var(--radius-sm);
 }
 
-/* Textarea height */
+/* Textarea specific height */
 textarea {
-    height: 88px;
+	height: 88px;
 }
-/* Focus reset */
+
+/* Remove default focus outline */
 input:focus,
 textarea:focus {
 	outline: none;
 	box-shadow: none;
 }
 
-/* Placeholder styling */
+/* Placeholder text styling */
 ::placeholder {
 	color: var(--color-text-placeholder);
-	font-family: "Montserrat", sans-serif;
+	font-family: var(--font-family-primary);
 	font-size: var(--font-size-base);
-	font-weight: 400;
-	line-height: 1.5;
+	font-weight: var(--font-weight-regular);
+	line-height: var(--line-height-body);
 }
 
 
-/* =========================
-   5. BUTTONS
-   ========================= */
+/* =========================================================
+   8. BUTTONS
+   =========================================================
+   
+   Primary button component with two variants.
+   Includes hover and active states.
+   
+   ========================================================= */
 
+/* Primary button (btn-1) */
 .btn-1 {
 	display: inline-block;
-	padding: 11.8px 22px;
-	border-radius: 29.5px;
-
+	padding: var(--size-button-padding-y) var(--size-button-padding-x);
+	border-radius: var(--radius-pill);
 	font-size: var(--font-size-base);
-	font-weight: 700;
+	font-weight: var(--font-weight-bold);
 	color: var(--color-text-white);
-
 	background-color: var(--color-brand-accent);
-	transition: all 0.3s linear;
+	transition: var(--transition-default);
 }
 
-/* Variant */
+/* Button variant (secondary color) */
 .btn-1.version-2 {
 	background-color: var(--color-brand-primary);
 }
 
-/* Hover states */
+/* Button hover state */
 .btn-1:hover {
 	background-color: var(--color-brand-primary);
 	color: var(--color-text-white);
 }
 
+/* Button variant hover state (reverses colors) */
 .btn-1.version-2:hover {
 	background-color: var(--color-brand-accent);
 }
 
 
-/* =========================
-   6. HEADER
-   ========================= */
+/* =========================================================
+   9. HEADER
+   =========================================================
+   
+   Fixed header with navigation, logo, and hamburger menu.
+   Includes shadow effect on scroll.
+   
+   ========================================================= */
 
-/* Header container */
+/* Header container with fixed positioning */
 .header-area {
 	position: fixed;
 	width: 100%;
-	z-index: 999;
+	z-index: var(--z-header);
 	padding: var(--header-padding) 0;
 	background: var(--header-bg);
-	transition: all 0.3s linear;
+	transition: var(--transition-default);
 }
 
-/* Active state when scrolled */
+/* Shadow appears when scrolled */
 .header-area.active {
-	box-shadow: 0 2px 20px var(--color-shadow-header);
+	box-shadow: var(--shadow-header);
 }
 
+/* Spacer element to prevent content overlap with fixed header */
 .header-fix {
 	height: var(--header-height);
 }
 
+/* Logo container */
 .header-logo {
 	padding-left: 29px;
 }
@@ -317,17 +530,22 @@ textarea:focus {
 	max-width: var(--logo-width);
 }
 
-/* Override container width inside header */
+/* Header container max-width override */
 .header-area .container {
-	max-width: 1308px;
+	max-width: var(--container-header-width);
 }
 
 
-/* =========================
-   NAVIGATION
-   ========================= */
+/* =========================================================
+   10. NAVIGATION MENU
+   =========================================================
+   
+   Main navigation links with underline hover effect.
+   Shared styles for main menu and footer links.
+   
+   ========================================================= */
 
-/* Reset lists */
+/* Reset list defaults */
 .mobile-nav ul,
 .main-menu ul {
 	list-style: none;
@@ -335,58 +553,58 @@ textarea:focus {
 	padding: 0;
 }
 
-/* Shared menu item */
+/* Menu item (inline list) */
 .footer-links ul li,
 .main-menu ul li {
 	display: inline-block;
 	position: relative;
-	z-index: 1;
+	z-index: var(--z-base);
 	margin-left: var(--menu-item-margin);
 }
 
-/* Remove margin for first item */
+/* Remove left margin from first item */
 .footer-links ul li:first-child,
 .main-menu ul li:first-child {
 	margin-left: 0;
 }
 
-/* Underline hover effect */
+/* Animated underline on hover (before pseudo-element) */
 .footer-links ul li::before,
 .main-menu ul li::before {
 	content: "";
 	position: absolute;
 	left: 0;
 	bottom: 0;
-
 	width: 0;
-	height: 2px;
-
+	height: var(--line-width-divider);
 	background-color: var(--color-brand-accent);
-	transition: all 0.3s linear;
+	transition: var(--transition-default);
 }
 
+/* Underline animation on hover */
 .footer-links ul li:hover::before,
 .main-menu ul li:hover::before {
 	width: 100%;
 }
 
-/* Links */
+/* Menu link text styling */
 .footer-links ul li a,
 .mobile-nav ul li a,
 .main-menu ul li a {
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: var(--font-weight-medium);
 	color: var(--menu-color);
-	transition: all 0.3s linear;
+	transition: var(--transition-default);
 }
 
+/* Menu link hover color */
 .footer-links ul li:hover a,
 .mobile-nav ul li:hover a,
 .main-menu ul li:hover a {
 	color: var(--color-brand-accent);
 }
 
-/* Mobile spacing */
+/* Mobile menu item spacing */
 .mobile-nav ul li {
 	padding-bottom: 15px;
 }
@@ -396,64 +614,80 @@ textarea:focus {
 }
 
 
-/* =========================
-   HAMBURGER BUTTON
-   ========================= */
+/* =========================================================
+   11. HAMBURGER BUTTON
+   =========================================================
+   
+   Mobile menu toggle button with animated lines.
+   
+   ========================================================= */
 
+/* Button container */
 .humbarger-btn {
 	position: relative;
 	width: var(--hamburger-size);
 	height: var(--hamburger-size);
-
 	border: 0;
 	background: var(--brand-color);
-
 	transition: background-color 0.3s linear;
 }
 
+/* Hamburger lines */
 .humbarger-btn span {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 27px;
-	height: 4px;
+	width: var(--hamburger-line-width);
+	height: var(--hamburger-line-height);
 	background-color: var(--color-text-white);
-	transition: all 0.3s linear;
+	transition: var(--transition-default);
 }
 
-/* Lines positioning */
+/* Hamburger line positioning */
 .humbarger-btn span:nth-child(1) { top: 13px; }
 .humbarger-btn span:nth-child(2) { top: 21px; }
 .humbarger-btn span:nth-child(3) { bottom: 10px; }
 
 
-/* =========================
-   OFFCANVAS MENU
-   ========================= */
+/* =========================================================
+   12. OFFCANVAS MENU (Mobile Navigation)
+   =========================================================
+   
+   Side drawer menu that slides in from the side.
+   Includes close button and contact information.
+   
+   ========================================================= */
 
+/* Menu container */
 .header-offcanvas.offcanvas {
 	background: var(--header-bg);
 }
 
+/* Offcanvas header section */
 .header-offcanvas .offcanvas-header {
-    padding: 20px;
+	padding: 20px;
 }
+
+/* Contact info links in menu */
 .header-offcanvas .direct-contact-info a {
-    color: var(--color-text-body);
-    font-size: var(--font-size-md);
-    font-weight: 500;
+	color: var(--color-text-body);
+	font-size: var(--font-size-md);
+	font-weight: var(--font-weight-medium);
 }
+
+/* Background shape decoration in menu */
 .offcanvas-shape-img {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    height: clamp(500px, 80vw,500px);
-    width: 100%;
-    z-index: -1;
-    opacity: 0.1;
-    transform: translateY(-50%);
+	position: absolute;
+	left: 0;
+	top: 50%;
+	height: clamp(500px, 80vw, 500px);
+	width: 100%;
+	z-index: var(--z-negative);
+	opacity: var(--opacity-light);
+	transform: translateY(-50%);
 }
-/* Close button */
+
+/* Offcanvas close button (X icon) */
 .header-offcanvas .btn-close {
 	width: var(--hamburger-size);
 	height: var(--hamburger-size);
@@ -462,7 +696,7 @@ textarea:focus {
 	border-radius: 0;
 	padding: 0;
 	margin: 0;
-	opacity: 1;
+	opacity: var(--opacity-full);
 	transition: background-color 0.3s linear;
 }
 
@@ -470,16 +704,16 @@ textarea:focus {
 	box-shadow: none;
 }
 
-/* Close icon lines */
+/* Close button icon lines */
 .header-offcanvas .btn-close span {
 	display: block;
-	width: 27px;
-	height: 5px;
+	width: var(--hamburger-line-width);
+	height: var(--hamburger-line-height-close);
 	background-color: var(--color-text-white);
-	transition: all 0.3s linear;
+	transition: var(--transition-default);
 }
 
-/* Active animation */
+/* Close button animation (X shape) */
 .header-offcanvas .btn-close.active span:nth-child(1) {
 	transform: rotate(45deg) translateX(-50%);
 	margin-bottom: 0;
@@ -490,9 +724,9 @@ textarea:focus {
 	margin-top: -5px;
 }
 
-/* Mobile nav wrapper */
+/* Mobile nav container */
 .mobile-nav {
-    padding: 30px 0;
+	padding: 30px 0;
 }
 
 .mobile-nav a:hover {
@@ -500,61 +734,162 @@ textarea:focus {
 }
 
 
-/* =========================
-   7. BANNER
-   ========================= */
+/* =========================================================
+   13. BANNER SECTIONS
+   =========================================================
+   
+   Large hero banners used across different page types.
+   Includes primary, secondary, and tertiary variants.
+   
+   ========================================================= */
 
+/* Primary banner section */
 .banner-area {
-	padding: 49px 0 128px;
+	padding: var(--banner-padding);
 }
 
-/* Overlay */
+/* Dark overlay on banner background image */
 .banner-area::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--color-bg-overlay);
-    z-index: 1;
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: var(--color-bg-overlay);
+	z-index: var(--z-base);
 }
 
+/* Content wrapper (max-width constraint) */
+.banner-area.secondary-banner.thirdary-banner .banner-content-wrapper ,
 .banner-content-wrapper {
 	max-width: 1177px;
 }
 
+/* Logo in banner */
 .banner-logo img {
-    max-width: clamp(120px , 15vw , 161px);
+	max-width: clamp(120px, 15vw, 161px);
 }
+
+/* Banner heading (h1 and h2) */
 .banner-area.secondary-banner.thirdary-banner h2,
 .banner-content-wrapper h1 {
 	font-size: var(--font-size-banner-h1);
 }
 
+/* Inner content container */
 .banner-inner-content {
 	max-width: 831px;
 }
 
+/* Banner paragraph text */
 .banner-inner-content p {
 	font-size: var(--font-size-banner-p);
-	font-weight: 600;
+	font-weight: var(--font-weight-semibold);
 	color: var(--color-text-white);
 }
 
+/* CTA button in banner */
 .banner-content-wrapper .btn-1 {
 	margin-top: 25px;
 }
 
+/* --------- Secondary Banner Variant --------- */
 
-/* =========================
-   8. SECTIONS
-   ========================= */
-
-/* Expertise */
-.our-expertise-section {
-	padding: 75px 0 143px;
+.banner-area.secondary-banner {
+	padding: var(--banner-padding-secondary);
+	min-height: var(--banner-min-height-secondary);
 }
-/* -------- WHAT WE DO -------- */
+.banner-area.secondary-banner .banner-content-wrapper {
+	max-width: 850px;
+}
+
+.banner-area.secondary-banner .banner-content-wrapper p {
+	color: var(--color-bg-white);
+	font-size: var(--font-size-banner-p);
+	font-weight: var(--font-weight-semibold);
+}
+
+.banner-area.secondary-banner::before {
+	z-index: var(--z-negative);
+}
+
+/* --------- Banner Shape Images --------- */
+
+/* Decorative shape background */
+.banner-shape-img {
+	opacity: var(--opacity-low);
+}
+
+.banner-area.banner-area-service .banner-shape-img {
+	opacity: var(--opacity-subtle);
+}
+
+.banner-shape-img.banner-shape-img-2 {
+	top: 50px;
+	height: calc(100% - 9px);
+	width: calc(100% + 148px);
+	background-position: left top;
+	left: -148px;
+}
+
+.banner-area.banner-area-service .banner-shape-img.banner-shape-img-2 {
+	opacity: var(--opacity-medium);
+}
+
+/* --------- Banner Color Variants --------- */
+
+/* About page banner (primary blue) */
+.banner-area.banner-area-about::before {
+	background: var(--color-brand-primary);
+}
+
+/* Services page banner (gold) */
+.banner-area.banner-area-service::before {
+	background: var(--color-brand-gold);
+}
+
+/* Service detail page banner (light blue) */
+.banner-area.banner-area-serve::before {
+	background: var(--color-brand-accent);
+}
+
+/* --------- Tertiary Banner Variant --------- */
+
+.banner-area.secondary-banner.thirdary-banner {
+	padding: var(--banner-padding-tertiary);
+	min-height: var(--banner-min-height-tertiary);
+}
+
+.banner-area.secondary-banner.thirdary-banner::before {
+	background-color: var(--color-brand-accent);
+}
+
+.banner-area.secondary-banner.thirdary-banner .banner-shape-img {
+	width: clamp(400px, 100vw, 1165px);
+	height: clamp(500px, 100vw, 1258px);
+	top: -37vw;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: var(--opacity-half);
+}
+
+
+/* =========================================================
+   14. MAIN CONTENT SECTIONS
+   =========================================================
+   
+   Expertise, What We Do, and Why Choose Us sections.
+   
+   ========================================================= */
+
+/* --------- Expertise Section --------- */
+
+.our-expertise-section {
+	padding: var(--section-padding-xl);
+}
+
+/* --------- What We Do Section --------- */
+
 .what-we-do-area {
-	margin-bottom: 130px;
+	margin-bottom: var(--section-spacing-mb);
 }
 
 .what-we-do-area .section-title-wrapper {
@@ -562,24 +897,23 @@ textarea:focus {
 	margin-bottom: 25px;
 }
 
-
-/* Grid spacing */
+/* Service card grid spacing */
 .services-card-area .row {
 	--bs-gutter-x: 21px;
 	--bs-gutter-y: 21px;
 }
 
-/* Service card */
+/* Service card (general styles) */
 .service-card {
-    display: flex;
-    align-items: flex-end;
-    min-height: clamp(400px, 30vw , 439px);
-    padding: 18px;
-    border-radius: 14px;
-    overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+	min-height: var(--service-card-min-height);
+	padding: 18px;
+	border-radius: var(--radius-lg);
+	overflow: hidden;
 }
 
-/* Overlay background */
+/* Card background overlay */
 .service-card::before {
 	content: "";
 	position: absolute;
@@ -587,61 +921,63 @@ textarea:focus {
 	background: var(--color-brand-accent);
 }
 
+/* Card background variant (primary blue) */
 .service-card.version-2::before {
 	background: var(--color-brand-primary);
 }
 
-/* Typography */
-.section-bottom-info p  ,
-.our-story-des p ,
-.step-label ,
-.process-content p
-.value-card p ,
-.what-we-do-area .section-title-wrapper p ,
+/* Service card typography */
+.mission-content p ,
+.section-bottom-info p,
+.our-story-des p,
+.step-label,
+.process-content p,
+.value-card p,
+.what-we-do-area .section-title-wrapper p,
 .choose-card-content h6,
 .service-card h5 {
-	line-height: 1.3;
+	line-height: var(--line-height-normal);
 }
 
 .service-card p {
 	font-size: var(--font-size-sm);
-	line-height: 130%;
+	line-height: var(--line-height-percentage);
 	color: var(--color-text-white);
 	margin-bottom: 0;
 }
 
-
-/* Card background images */
+/* Service card background images */
 .service-card-img {
 	width: 100%;
 	top: 0;
 	left: 0;
-	min-height: 282px;
+	min-height: var(--service-card-img-height-1);
 	background-position: left top;
 }
 
+/* Image positioning adjustments per card */
 .service-card-img-2 {
-	min-height: 272px;
+	min-height: var(--service-card-img-height-2);
 	top: 8px;
 	left: 20px;
 }
 
 .service-card-img-3 {
-	min-height: 280px;
+	min-height: var(--service-card-img-height-3);
 	top: 8px;
 	left: 0;
 }
 
 .service-card-img-4 {
-	min-height: 261px;
+	min-height: var(--service-card-img-height-4);
 	top: 14px;
 }
 
 .service-card-img-5 {
-	min-height: 293px;
+	min-height: var(--service-card-img-height-5);
 }
 
-/* Bottom section */
+/* Bottom section with button */
 .section-bottom-info {
 	margin-top: 68px;
 }
@@ -650,11 +986,10 @@ textarea:focus {
 	padding: 11.5px 39px;
 }
 
-
-/* -------- WHY CHOOSE -------- */
+/* --------- Why Choose Section --------- */
 
 .why-choose-area .container {
-	max-width: 1210px;
+	max-width: var(--container-why-choose);
 }
 
 .why-choose-area .container > .row {
@@ -665,7 +1000,7 @@ textarea:focus {
 	max-width: 292px;
 }
 
-/* Cards layout */
+/* Cards container (right side) */
 .why-choose-cards {
 	max-width: 724px;
 	margin-left: auto;
@@ -676,20 +1011,20 @@ textarea:focus {
 	--bs-gutter-y: 58px;
 }
 
-/* Card */
+/* Individual card */
 .choose-card {
-	gap: 11px;
+	gap: var(--gap-xs);
 }
 
-/* Icon */
+/* Card icon (circular badge) */
 .choose-card-icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 59px;
-	height: 59px;
-	min-width: 59px;
-	border-radius: 50%;
+	width: var(--icon-size-medium);
+	height: var(--icon-size-medium);
+	min-width: var(--icon-size-medium);
+	border-radius: var(--radius-full);
 	background: var(--color-brand-primary);
 }
 
@@ -698,17 +1033,17 @@ textarea:focus {
 }
 
 .choose-card-icon img {
-	width: 30px;
-	height: 30px;
+	width: var(--icon-size-small);
+	height: var(--icon-size-small);
 }
 
-/* Text */
+/* Card heading */
 .choose-card-content h6 {
 	font-size: var(--font-size-base);
 	color: var(--color-text-body);
 }
 
-/* Background shape */
+/* Background decorative shape */
 .why-choose-bg-shape {
 	position: absolute;
 	left: 0;
@@ -716,13 +1051,437 @@ textarea:focus {
 	width: 100%;
 	height: clamp(600px, 30vw, 810px);
 	background-image: url('/assets/image/choose.png');
-	z-index: -1;
+	z-index: var(--z-negative);
 }
 
 
-/* =========================
-   9. FOOTER
-   ========================= */
+/* =========================================================
+   15. ABOUT & COMPANY PAGES
+   =========================================================
+   
+   About page sections including company story, mission,
+   values, and core services.
+   
+   ========================================================= */
+
+/* --------- Container & General Layout --------- */
+
+.about-container-section {
+	padding: var(--section-padding-lg);
+}
+
+/* --------- Our Story Section --------- */
+
+.mission-section .container,
+.our-story-area .container {
+	max-width: var(--container-about);
+}
+
+.mission-section .mission-img,
+.our-story-area .our-story-des,
+.our-story-area .section-title-wrapper {
+	padding-left: 41px;
+}
+
+.our-story-area .section-title-wrapper .btn-1.version-2 {
+	padding: 11.8px 30px;
+	margin-right: 42px;
+}
+
+/* Decorative background shape */
+.our-story-shape {
+	width: clamp(500px, 80vw, 1440px);
+	min-height: clamp(500px, 80vw, 936px);
+	top: -371px;
+	right: 0;
+	z-index: var(--z-negative);
+	pointer-events: none;
+}
+
+.our-story-des {
+	margin-top: 33px;
+}
+
+/* Grid spacing within story section */
+.our-story-des .row {
+	--bs-gutter-x: 29px;
+}
+
+/* Section spacing */
+.values-section,
+.our-story-area {
+	margin-bottom: 135px;
+}
+
+/* --------- Values Section --------- */
+
+.values-section .container {
+	max-width: var(--container-values);
+}
+
+/* Icon box styling */
+.value-card {
+    flex-direction: column;
+    gap: var(--gap-sm);
+}
+.icon-box {
+    width: 69.612px;
+    height: 84.751px;
+    background-color: var(--color-brand-accent);
+	flex-shrink:0;
+}
+
+/* Values cards wrapper */
+.value-card-wrapper {
+	margin-top: 30px;
+}
+
+.value-card-wrapper .row {
+	--bs-gutter-x: 185px;
+	justify-content: center;
+}
+
+/* Individual value card */
+.value-card h5 {
+	margin-bottom: 25px;
+}
+
+.value-card p {
+	color: var(--color-bg-black);
+	font-size: 14px;
+}
+
+/* --------- Mission Section --------- */
+
+.mission-section .mission-img {
+	max-width: 593px;
+}
+
+/* Mission content container */
+.mission-content {
+	max-width: 553px;
+	margin-right: 0;
+	margin-left: auto;
+}
+
+/* Mission image styling */
+.mission-img img {
+	border-radius: var(--radius-xl);
+	min-height: 270px;
+	object-fit: cover;
+}
+.mission-content p {
+    color: var(--color-bg-black);
+    font-weight: var(--font-weight-medium);
+
+}
+
+
+/* =========================================================
+   16. CORE SERVICES SECTION
+   =========================================================
+   
+   Grid of service cards with icons, descriptions,
+   and feature lists.
+   
+   ========================================================= */
+
+.our-core-services {
+	padding: var(--section-padding-md);
+}
+
+.our-core-services .container {
+	max-width: var(--container-services);
+}
+
+/* Service card container */
+.core-services-card {
+	border: var(--border-width-normal) solid #DBDFEA;
+	border-radius: var(--card-border-radius);
+	overflow: hidden;
+	height: 100%;
+	background-color: var(--color-bg-white);
+	transition: var(--transition-default);
+}
+
+/* Card header (banner) */
+.core-card-banner {
+	height: var(--card-banner-height);
+	background-color: var(--color-brand-gold-light);
+	width: calc(100% + 2px);
+	margin-left: -1px;
+}
+
+/* Card body content */
+.core-services-content {
+	padding: var(--padding-list);
+}
+
+.core-services-content p {
+	margin-bottom: 8px;
+}
+
+/* Feature list text */
+.core-services-content ul li,
+.core-services-content p {
+	font-size: var(--font-size-md);
+	line-height: var(--line-height-relaxed);
+}
+
+/* Feature list styling */
+.core-services-content ul {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+.core-services-content ul li {
+	position: relative;
+	padding-left: 14px;
+	margin-bottom: 3px;
+}
+
+/* List item bullet point */
+.core-services-content ul li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 9px;
+	height: var(--line-width-divider);
+	width: 2px;
+	background: var(--color-text-body);
+}
+
+
+/* =========================================================
+   17. PROCESS TIMELINE SECTION
+   =========================================================
+   
+   Step-by-step process visualization with timeline line,
+   dots, and alternating layout.
+   
+   ========================================================= */
+
+.our-process-section {
+	background-color: var(--color-bg-white);
+	position: relative;
+}
+
+.our-process-section .container {
+	max-width: var(--container-process);
+}
+
+/* Timeline wrapper */
+.process-timeline {
+	margin-top: 78px;
+}
+
+/* Individual process step */
+.process-item {
+	gap: var(--process-gap);
+	margin-bottom: var(--process-margin-bottom);
+}
+
+.process-item:last-child {
+	margin-bottom: 0;
+}
+
+.process-item > div {
+	flex-basis: 50%;
+}
+
+/* Process image */
+.process-img img {
+	max-width: var(--process-image-max-width);
+	min-height: var(--process-image-height);
+	object-fit: cover;
+}
+
+/* Vertical timeline line */
+.process-line {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	height: 100%;
+	width: var(--line-width-divider);
+	background: #DBDFEA;
+	z-index: var(--z-base);
+	margin-left: -4px;
+}
+
+/* Step content area */
+.process-content {
+	max-width: var(--process-content-max-width);
+}
+
+/* Timeline dot marker */
+.process-dot {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: var(--process-dot-size);
+	height: var(--process-dot-size);
+	background-color: var(--color-brand-gold);
+	border-radius: var(--radius-full);
+	z-index: var(--z-dropdown);
+	margin-left: -11.5px;
+}
+
+/* Step number/label */
+.step-label {
+	color: var(--color-brand-gold);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: 0.7px;
+	text-transform: uppercase;
+	font-size: var(--font-size-md);
+}
+
+.process-content p {
+	font-size: var(--font-size-md);
+}
+
+/* Bottom section button */
+.our-process-section .section-bottom-info {
+	margin: 86px 0;
+}
+
+
+/* =========================================================
+   18. "WHAT WE SERVE" SECTION
+   =========================================================
+   
+   Alternative What We Do section with different styling.
+   Used on services pages.
+   
+   ========================================================= */
+
+.what-we-do-area.serve-do-area {
+	margin: 0;
+	padding: 65px 0;
+}
+
+/* Service card image sizes (serve area variant) */
+.service-card-img.service-card-img-6 {
+	min-height: var(--service-card-img-height-6);
+}
+
+.service-card-img.service-card-img-7 {
+	min-height: var(--service-card-img-height-7);
+}
+
+.service-card-img.service-card-img-9,
+.service-card-img.service-card-img-10 {
+	min-height: var(--service-card-img-height-8);
+}
+
+/* Serve area card padding */
+.what-we-do-area.serve-do-area .service-card {
+	padding: 50px 26px;
+}
+
+.what-we-do-area.serve-do-area .section-bottom-info p {
+	font-weight: var(--font-weight-semibold);
+}
+
+.what-we-do-area.serve-do-area .section-bottom-info {
+	margin-top: 34px;
+}
+
+
+/* =========================================================
+   19. CONTACT FORM SECTION
+   =========================================================
+   
+   Contact form wrapper with input fields and labels.
+   
+   ========================================================= */
+
+.contact-area {
+	padding: var(--section-padding-sm);
+}
+
+/* Form container */
+.contact-wrapper {
+	border-radius: var(--radius-md);
+	border: var(--border-width-normal) solid var(--color-border-light);
+	background: var(--color-bg-white);
+	padding: var(--form-padding);
+	max-width: var(--form-wrapper-max-width);
+}
+
+.contact-wrapper .row {
+	--bs-gutter-y: var(--form-gutter-y);
+}
+
+/* Form label styling */
+.contact-info label {
+	display: block;
+	font-size: var(--font-size-md);
+	margin-bottom: 4px;
+}
+
+
+/* =========================================================
+   20. DIRECT CONTACT SECTION
+   =========================================================
+   
+   Call-to-action section with direct phone/contact info
+   and large heading.
+   
+   ========================================================= */
+
+.direct-area {
+	padding: 52px 0 45px;
+}
+
+.direct-area .container {
+	max-width: var(--container-direct);
+}
+
+/* Contact links styling */
+.direct-contact-info a {
+	color: var(--color-bg-white);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-bold);
+	line-height: var(--line-height-generous);
+	display: inline-block;
+	transition: var(--transition-default);
+}
+.direct-contact-info a:hover {
+	color: var(--accent-color);
+}
+
+/* Title max-width */
+.direct-area .hero-title {
+	max-width: 250px;
+}
+
+/* Spacing between title and contact */
+.direct-contact-info {
+	margin-left: 20px;
+}
+
+/* Decorative shape */
+.direact-shpae-img {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	height: 100%;
+	width: clamp(400px, 50vw, 526px);
+	opacity: var(--opacity-light);
+	transform: translateX(-50%);
+	margin-left: 286px;
+}
+
+
+/* =========================================================
+   21. FOOTER
+   =========================================================
+   
+   Footer section with logo, links, copyright.
+   Dark background with white text.
+   
+   ========================================================= */
 
 .footer-area {
 	padding: 30px 0 16px;
@@ -730,10 +1489,10 @@ textarea:focus {
 }
 
 .footer-area .container {
-	max-width: 1360px;
+	max-width: var(--container-wide);
 }
 
-/* Logo + text alignment */
+/* Footer logo section */
 .footer-logo,
 .footer-bottom p {
 	padding-left: 54px;
@@ -743,374 +1502,21 @@ textarea:focus {
 	max-width: clamp(150px, 15vw, 206px);
 }
 
-/* Links + text color */
+/* Footer text and links */
 .footer-bottom p,
 .footer-links ul li a {
 	color: var(--color-text-white);
 }
 
-/* Bottom spacing */
+/* Footer bottom section */
 .footer-bottom {
 	margin-top: 27px;
 }
 
 .footer-bottom p {
 	font-size: var(--font-size-sm);
-	font-weight: 500;
-	line-height: 1.2;
+	font-weight: var(--font-weight-medium);
+	line-height: var(--line-height-tight);
 }
 
-
-
-
-/* secondary-banner */
-
-.banner-area.secondary-banner {
-    padding: 100px 0;
-    min-height: clamp(200px , 30vw , 397px);
-}
-.banner-area.secondary-banner.thirdary-banner .banner-content-wrapper ,
-.banner-area.secondary-banner .banner-content-wrapper {
-    max-width: 850px;
-}
-.banner-area.secondary-banner .banner-content-wrapper p {
-    color: var(--color-bg-white);
-    font-size: var(--font-size-banner-p);
-    font-weight: 600;
-}
-.banner-area.secondary-banner::before{
-	z-index: -1;
-}
-/* banner-area-about */
-.banner-shape-img{
-	opacity: 0.3;
-}
-.banner-area.banner-area-service .banner-shape-img {
-    opacity: 0.05;
-}
-.banner-shape-img.banner-shape-img-2 {
-    top: 50px;
-    height: calc(100% - 9px);
-    width: calc(100% + 148px);
-    background-position: left top;
-    left: -148px;
-}
-.banner-area.banner-area-service .banner-shape-img.banner-shape-img-2{
-	opacity: 0.4;
-}
-.banner-area.banner-area-about::before {
-    background: var(--color-brand-primary);
-}
-/* banner-area-service */
-.banner-area.banner-area-service::before {
-    background: var(--color-brand-gold);
-}
-/* banner-area-serve */
-.banner-area.banner-area-serve::before {
-    background: var(--color-brand-accent);
-}
-/* banner  thirdary*/
-.banner-area.secondary-banner.thirdary-banner {
-    padding: 55px 0 125px;
-    min-height: clamp(200px , 30vw , 425px);
-}
-.banner-area.secondary-banner.thirdary-banner::before{
-	background-color: var(--color-brand-accent);
-}
-.banner-area.secondary-banner.thirdary-banner .banner-shape-img {
-    width: clamp(400px, 100vw, 1165px);
-    height: clamp(500px, 100vw, 1258px);
-    top: -37vw;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.5;
-}
-
-
-/* banner  thirdary*/
-
-
-/* about container section start */
-.about-container-section {
-    padding: 91px 0 128px;
-}
-
-/* our story */
-.mission-section .container,
-.our-story-area .container {
-    max-width: 1240px;
-}
-.mission-section .mission-img ,
-.our-story-area .our-story-des  ,
-.our-story-area .section-title-wrapper {
-    padding-left: 41px;
-}
-.our-story-area .section-title-wrapper .btn-1.version-2 {
-    padding: 11.8px 30px;
-    margin-right: 42px;
-}
-
-/* .our-story-shape {
-    width: 100%;
-    min-height: clamp(500px, 90vw , 936px);
-    top: -371px;
-    right: -214px;
-    z-index: -1;
-    pointer-events: none;
-} */
-.our-story-shape {
-    width: clamp(500px , 80vw,1440px);
-    min-height: clamp(500px, 80vw , 936px);
-    top: -371px;
-    right: 0;
-    z-index: -1;
-    pointer-events: none;
-}
-.our-story-des {
-    margin-top: 43px;
-}
-.values-section ,
-.our-story-area {
-    margin-bottom: 145px;
-}
-.our-story-des .row {
-	--bs-gutter-x:29px;
-}
-/* our value area */
-.values-section .container {
-    max-width: 1296px;
-}
-.icon-box {
-    width: 69.612px;
-    height: 84.751px;
-    background-color: var(--color-brand-accent);
-	margin-bottom: 14px;
-}
-.value-card-wrapper {
-    margin-top: 40px;
-}
-.value-card-wrapper .row {
-    --bs-gutter-x: 185px;
-    justify-content: center;
-}
-.value-card h5 {
-    margin-bottom: 25px;
-}
-.value-card p {
-    color: var(--color-bg-black);
-    font-size: 14px;
-}
-
-/* our mission area */
-.mission-section .mission-img {
-    max-width: 593px;
-}
-.mission-content {
-    max-width: 553px;
-    margin-right: 0;
-    margin-left: auto;
-}
-.mission-img img {
-    border-radius: 15px;
-    min-height: 270px;
-    object-fit: cover;
-}
-
-/* =========================
-   CORE SERVICES SECTION
-========================= */
-.our-core-services {
-    padding: 64px 0 85px;
-}
-.our-core-services .container {
-    max-width: 1136px;
-}
-.core-services-card {
-    border: 1px solid #DBDFEA;
-    border-radius: 17px;
-    overflow: hidden;
-    height: 100%;
-    background-color: var(--color-bg-white);
-    transition: all 0.3s linear;
-}
-.core-card-banner {
-    height: 180px;
-    background-color: var(--color-brand-gold-light);
-    width: calc(100% + 2px);
-    margin-left: -1px;
-}
-.core-services-content {
-    padding: 20px 31px;
-}
-.core-services-content p {
-	margin-bottom: 8px;
-}
-.core-services-content ul li ,
-.core-services-content p{
-    font-size: var(--font-size-md);
-    line-height: 1.4;
-}
-.core-services-content ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 0;
-}
-.core-services-content ul li {
-    position: relative;
-    padding-left: 14px;
-    margin-bottom: 3px;
-}
-.core-services-content ul li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 9px;
-    height: 2px;
-    width: 2px;
-    background: var(--color-text-body);
-}
-
-/* =========================
-OUR PROCESS SECTION
-========================= */
-
-.our-process-section {
-    background-color: var(--color-bg-white);
-    position: relative;
-}
-.our-process-section .container {
-    max-width: 804px;
-}
-.process-timeline{
-    margin-top: 78px;
-}
-.process-item {
-    gap: 22px;
-    margin-bottom: 45px;
-}
-.process-item:last-child{
-	margin-bottom: 0;
-}
-.process-item > div {
-    flex-basis: 50%;
-}
-.process-img img {
-    max-width: 348px;
-    min-height: 200px;
-    object-fit: cover;
-}
-.process-line {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: #DBDFEA;
-    z-index: 1;
-    margin-left: -4px;
-}
-.process-content {
-    max-width: 327px;
-}
-.process-dot {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 17px;
-    height: 17px;
-    background-color: var(--color-brand-gold);
-    border-radius: 50%;
-    z-index: 2;
-    margin-left: -11.5px;
-}
-.step-label {
-    color: var(--color-brand-gold);
-    font-weight: 600;
-    letter-spacing: 0.7px;
-	text-transform: uppercase;
-}
-.step-label,
-.process-content p{
-    font-size: var(--font-size-md);
-}
-
-.our-process-section .section-bottom-info {
-    margin: 86px 0;
-}
-
-/* serve do area */
-.what-we-do-area.serve-do-area {
-    margin: 0;
-    padding: 65px 0;
-}
-.service-card-img.service-card-img-6 {
-    min-height: 318px;
-}
-.service-card-img.service-card-img-7 {
-    min-height: 303px;
-}
-.service-card-img.service-card-img-10 ,
-.service-card-img.service-card-img-9 {
-    min-height: 298px;
-}
-.what-we-do-area.serve-do-area .service-card{
-    padding: 50px 26px;
-}
-.what-we-do-area.serve-do-area .section-bottom-info p {
-    font-weight: 600;
-}
-.what-we-do-area.serve-do-area .section-bottom-info {
-    margin-top: 34px;
-}
-
-/* contact form  */
-
-.contact-area {
-    padding: 34px 0 41px;
-}
-.contact-wrapper {
-    border-radius: 9px;
-    border: 1px solid var(--color-border-light);
-    background: var(--color-bg-white);
-    padding: 40px 60px 67px 60px;
-    max-width: 705px;
-}
-.contact-wrapper .row {
-    --bs-gutter-y: 16px; 
-}
-.contact-info label {
-    display: block;
-    font-size: var(--font-size-md);
-    margin-bottom: 4px;
-}
-
-/* direct section area  */
-.direct-area{
-    padding: 52px 0 45px;
-}
-.direct-area .container {
-    max-width: 918px;
-}
-.direct-contact-info a {
-    color: var(--color-bg-white);
-    font-size: var(--font-size-base);
-    font-weight: 700;
-    line-height: 1.78;
-    display: inline-block;
-}
-.direct-area .hero-title {
-    max-width: 250px;
-}
-.direct-contact-info{
-    margin-left: 20px;
-}
-.direact-shpae-img {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    height: 100%;
-    width: clamp(400px, 50vw , 526px);
-    opacity: 0.1;
-    transform: translateX(-50%);
-    margin-left: 286px;
-}
+/* ========================================================= */

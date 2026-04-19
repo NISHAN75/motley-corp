@@ -10,8 +10,9 @@
 		<link rel="stylesheet" href="assets/css/responsive.css">
 	</head>
 	<body data-overlayscrollbars-initialize>
-		<!-- Mobile Offcanvas Menu -->                                                                                                                                                                          
+		<!-- Mobile Offcanvas Menu -->                                            
 		<div class="offcanvas header-offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+			<div class="offcanvas-shape-img bg-fix" style="background-image: url('assets/image/offcanvas-shape.png');"></div>
 			<div class="offcanvas-header justify-content-end">                                                                                                                                                  
 				<button type="button" class="btn-close d-flex align-items-center justify-content-center flex-column" data-bs-dismiss="offcanvas" aria-label="Close">
 				<span></span>
@@ -23,10 +24,34 @@
 					<ul>
 						<li><a href="about.html">About Us</a></li>
 						<li><a href="services.html">Services</a></li>
-						<li><a href="#">Who We Serve</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="serve.html">Who We Serve</a></li>
+						<li><a href="contact.html">Contact</a></li>
 					</ul>
 				</nav>
+				<div class="direct-title w-100 mb-2 pb-1">
+					<h6 class="mb-0">Direct Contact Information</h6>
+				</div>
+				<div class="direct-contact-info ms-0">
+					<a href="tel:+12054414085">
+						<span>Phone:</span>
+						<span>205-441-4085</span>
+					</a>
+					<br>
+					<a href="mailto:info@motleycorp.com">
+						<span>Email:</span>
+						<span>info@motleycorp.com</span>
+					</a>
+					<br>
+					<address class="mb-0">
+						<a href="https://www.google.com/maps/place/2512+16th+St+N,+Birmingham,+AL+35204,+USA"
+						target="_blank"
+							rel="noopener noreferrer">
+							<span>Office:</span>
+							<span>2512 16th St N, Birmingham, AL</span>
+						</a>
+					</address>
+				</div>
+				
 			</div>
 		</div>
 		<!-- Header Section -->
@@ -41,10 +66,10 @@
 					<div class="col">
 						<nav class="main-menu text-end d-none d-lg-block">
 							<ul>
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Services</a></li>
-								<li><a href="#">Who We Serve</a></li>
-								<li><a href="#">Contact</a></li>
+								<li><a href="about.html">About Us</a></li>
+								<li><a href="services.html">Services</a></li>
+								<li><a href="serve.html">Who We Serve</a></li>
+								<li><a href="contact.html">Contact</a></li>
 							</ul>
 						</nav>
 						<div class="d-flex justify-content-end d-lg-none">
@@ -129,36 +154,42 @@
 						<div class="value-card-wrapper animation-line" animation-dealy="0.3">
 							<div class="row gy-4">
 								<div class="col col-auto">
-									<div class="value-card mb-p text-center text-sm-start">
+									<div class="value-card d-flex mb-p">
 										<div class="icon-box rounded-circle mx-auto ms-sm-0 me-sm-auto d-flex align-items-center justify-content-center primary-bg">
 											<img src="assets/image/value-card/value-icon-01.svg" alt="Integrity">
 										</div>
-										<h5>Integrity</h5>
-										<p>
-											We believe in transparent communication,<br> honesty, and accountability at every stage.
-										</p>
+										<div class="value-inner-card">
+											<h5>Integrity</h5>
+											<p>
+												We believe in transparent communication,<br> honesty, and accountability at every stage.
+											</p>
+										</div>
 									</div>
 								</div>
 								<div class="col col-auto">
-									<div class="value-card mb-p text-center text-sm-start">
+									<div class="value-card d-flex mb-p">
 										<div class="icon-box rounded-circle mx-auto ms-sm-0 me-sm-auto d-flex align-items-center justify-content-center">
-											<img src="assets/image/value-card/value-icon-02.svg" alt="Quality">
+											<img src="assets/image/value-card/value-icon-02.svg" alt="Integrity">
 										</div>
-										<h5>Quality Craftsmanship</h5>
-										<p>
-											Excellence is at the core of everything we do.
-										</p>
+										<div class="value-inner-card">
+											<h5>Quality Craftsmanship</h5>
+											<p>
+												Excellence is at the core of everything we do.
+											</p>
+										</div>
 									</div>
 								</div>
 								<div class="col col-auto">
-									<div class="value-card mb-p text-center text-sm-start">
+									<div class="value-card d-flex mb-p">
 										<div class="icon-box rounded-circle mx-auto ms-sm-0 me-sm-auto d-flex align-items-center justify-content-center primary-bg">
-											<img src="assets/image/value-card/value-icon-03.svg" alt="Safety">
+											<img src="assets/image/value-card/value-icon-03.svg" alt="Integrity">
 										</div>
-										<h5>Safety & Sustainability</h5>
-										<p>
-											We minimize environmental impact and <br>ensure safe working conditions for every<br> project.
-										</p>
+										<div class="value-inner-card">
+											<h5>Safety & Sustainability</h5>
+											<p>
+												We minimize environmental impact and<br> ensure safe working conditions for every <br>project.
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -178,7 +209,7 @@
 								
 								<div class="col">
 									<div class="mission-content">
-										<h2 class="hero-title">Our Mission</h2>
+										<h2 class="hero-title mb-1">Our Mission</h2>
 										<div class="animation-line mb-p" animation-dealy="0.3">
 											<p>
 											Motley Corp is built on grit, determination, and a commitment to doing things the right way - values we carry into every project we take on. At Motley Corp, we believe construction is more than just brick and steel; it's about creating opportunity, preserving legacies, and strengthening communities. We combine time-tested techniques with modern efficiency to ensure every project is completed with integrity, precision, and pride. From demolition to development, we're here to shape the future - one build at a time.

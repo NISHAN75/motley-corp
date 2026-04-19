@@ -1,60 +1,92 @@
 /* =========================================================
    RESPONSIVE STYLES
-   ---------------------------------------------------------
-   Breakpoints:
-   1. ≤1299px  (Large Desktop)
-   2. ≤1199px  (Laptop)
-   3. ≤991px   (Tablet)
-   4. ≤767px   (Mobile Large)
-   5. ≤575px   (Mobile)
-   6. ≤480px   (Small Mobile)
-   7. ≤380px   (Extra Small Mobile)
+   =========================================================
+   
+   Mobile-first approach with breakpoints organized from
+   largest (1299px) to smallest (380px) screens.
+   
+   Uses CSS variables defined in styles.css for consistent
+   responsive adjustments across all breakpoints.
+   
+   Breakpoint Reference:
+   - 1399px and down   : Up Large Desktop adjustments
+   - 1299px and down   : Large Desktop adjustments
+   - 1199px and down   : Laptop/Large Tablet adjustments
+   - 991px and down    : Tablet adjustments
+   - 767px and down    : Mobile Large adjustments
+   - 575px and down    : Mobile adjustments
+   - 480px and down    : Small Mobile adjustments
+   - 380px and down    : Extra Small Mobile adjustments
+   
    ========================================================= */
 
 
-/* =========================
-   ≤1299px (Large Desktop)
-   ========================= */
+/* =========================================================
+   BREAKPOINT: ≤1299px (Large Desktop)
+   =========================================================
+   
+   Subtle adjustments for screens transitioning from full
+   desktop to large laptop size. Mainly padding reductions
+   and spacing tweaks.
+   
+   ========================================================= */
+
+@media (max-width: 1399px) {
+	/* Values cards wrapper */
+	.value-card-wrapper .row {
+		--bs-gutter-x: 35px;
+	}
+}
 @media (max-width: 1299px) {
 
-	/* Adjust menu spacing */
+	/* --------- Navigation Spacing --------- */
 	:root {
 		--menu-item-margin: 55px;
 	}
 
-	/* Section spacing */
+	/* --------- Section Spacing --------- */
 	.what-we-do-area {
 		margin-bottom: 10vw;
 	}
 
-	/* Footer alignment reset */
+	/* --------- Footer Alignment --------- */
 	.footer-bottom p,
 	.footer-logo {
 		padding-left: 0;
 	}
-	/* about container section start */
-	.mission-section .mission-img, .our-story-area .our-story-des, .our-story-area .section-title-wrapper {
+
+	/* --------- About Page Sections --------- */
+	.mission-section .mission-img,
+	.our-story-area .our-story-des,
+	.our-story-area .section-title-wrapper {
 		padding-left: 0;
 	}
+
 }
 
 
-/* =========================
-   ≤1199px (Laptop)
-   ========================= */
+/* =========================================================
+   BREAKPOINT: ≤1199px (Laptop)
+   =========================================================
+   
+   Significant layout adjustments for traditional laptop
+   screens. Menu spacing reduced, layout shifts to column
+   stacking for certain sections.
+   
+   ========================================================= */
+
 @media (max-width: 1199px) {
 
-	/* Adjust menu spacing */
+	/* --------- Navigation Menu --------- */
 	:root {
 		--menu-item-margin: 45px;
 	}
 
-	/* Header */
 	.header-logo {
 		padding-left: 0;
 	}
 
-	/* Service cards */
+	/* --------- Service Cards --------- */
 	.service-card {
 		padding: 18px 10px;
 	}
@@ -63,11 +95,13 @@
 		--bs-gutter-x: 10px;
 	}
 
+	/* --------- Section Spacing --------- */
 	.section-bottom-info {
 		margin-top: 7vw;
 	}
 
-	/* Why choose section layout (stacked) */
+	/* --------- Why Choose Section (Stacked Layout) --------- */
+	/* Change from side-by-side to stacked layout */
 	.why-choose-area .container > .row {
 		--bs-gutter-y: 8vw;
 		flex-direction: column;
@@ -77,7 +111,7 @@
 		width: 100%;
 	}
 
-	/* Center align content */
+	/* Center-align when stacked */
 	.why-choose-area .section-title-wrapper {
 		max-width: 100%;
 		text-align: center;
@@ -93,31 +127,42 @@
 		max-width: 800px;
 	}
 
-	/* Section padding */
+	/* --------- Section Padding --------- */
 	.our-expertise-section {
 		padding: 8vw 0;
 	}
-	
-	/* about container section start */
-	.values-section, .our-story-area {
+
+	/* --------- About Page Sections --------- */
+	.values-section,
+	.our-story-area {
 		margin-bottom: 8vw;
 	}
+
 	.mission-content {
 		margin-left: 30px;
 	}
-	/* direct section area  */
+
+	/* --------- Direct Contact Section --------- */
 	.direact-shpae-img {
 		margin-left: 0;
 	}
+
 }
 
 
-/* =========================
-   ≤991px (Tablet)
-   ========================= */
+/* =========================================================
+   BREAKPOINT: ≤991px (Tablet)
+   =========================================================
+   
+   Major responsive changes for tablet devices. Typography
+   scales down, layout changes to single column for many
+   sections, padding/margins reduced.
+   
+   ========================================================= */
+
 @media (max-width: 991px) {
 
-	/* Typography scaling */
+	/* --------- Typography Scaling --------- */
 	:root {
 		--font-size-h1: 40px;
 		--font-size-h2: 36px;
@@ -126,9 +171,10 @@
 		--font-size-h5: 22px;
 		--font-size-banner-h1: 40px;
 		--font-size-banner-p: 18px;
+		
 	}
 
-	/* Header */
+	/* --------- Header --------- */
 	.header-logo img {
 		max-width: 200px;
 	}
@@ -141,15 +187,16 @@
 		height: var(--header-height-md);
 	}
 
-	/* Buttons (consistent scaling) */
-	.our-story-area .section-title-wrapper .btn-1.version-2 , 
+	/* --------- Buttons (scaled down) --------- */
+	.our-story-area .section-title-wrapper .btn-1.version-2,
 	.btn-1,
 	.btn-1.version-2,
 	.what-we-do-area .section-bottom-info .btn-1.version-2 {
-		padding: 6.8px 17px;
+		padding: var(--size-button-padding-sm-y) var(--size-button-padding-sm-x);
 	}
 
-	/* Why choose grid */
+	/* --------- Why Choose Cards --------- */
+	/* Two-column grid layout */
 	.why-choose-cards .col-auto {
 		width: 50%;
 	}
@@ -158,56 +205,92 @@
 		--bs-gutter-x: 24px;
 		--bs-gutter-y: 35px;
 	}
-	/* about container section start */
+
+	/* --------- About Page Layout --------- */
 	.about-container-section {
 		padding: 8vw 0;
 	}
+
+
+	/* Stack mission section to single column */
 	.mission-section .col {
 		flex: 1 0 100%;
 	}
-	.mission-content ,
+
+	.mission-content,
 	.mission-section .mission-img {
 		max-width: 100%;
 		margin: 0;
 	}
+
+	/* --------- Values Section --------- */
+	.value-card {
+		flex-direction: row;
+		max-width: 367px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.value-card-wrapper .col{
+		flex-basis: 100%;
+		width: 100%;
+	}
 	.value-card-wrapper {
-		margin-top: 8vw;
+		margin-top: 25px;
 	}
 	.value-card h5 {
-		margin-bottom: 3vw;
+		margin-bottom: 12px;
 	}
-	/* core services */
+	.value-inner-card p br {
+		display: none;
+	}
+	.icon-box {
+		width: 60px;
+		height: 74px;
+	}
+	.icon-box img {
+		height: 30px;
+		width: 30px;
+	}
+
+	/* --------- Core Services --------- */
 	.core-services-content {
 		padding: 20px 15px;
 	}
-	/* =========================
-	OUR PROCESS SECTION
-	========================= */
+
+	/* --------- Process Timeline Section --------- */
 	.process-timeline {
 		margin-top: 50px;
 	}
+
 	.our-process-section .section-bottom-info {
-		margin: 10vw 0;
+		margin: 40px 0;
 	}
-	/* contact form  */
+
+	/* --------- Contact Form --------- */
 	.contact-area {
 		padding: 35px 0;
 	}
-	.contact-wrapper {
-		padding: 40px 30px;
-	}
-	
 
+	.contact-wrapper {
+		padding: var(--padding-lg);
+	}
 
 }
 
 
-/* =========================
-   ≤767px (Mobile Large)
-   ========================= */
+/* =========================================================
+   BREAKPOINT: ≤767px (Mobile Large)
+   =========================================================
+   
+   Tablet-to-mobile transition. Significant typography
+   reduction, layout adjustments, and spacing changes.
+   Navigation moves to hamburger menu primarily.
+   
+   ========================================================= */
+
 @media (max-width: 767px) {
 
-	/* Typography scaling */
+	/* --------- Typography Scaling (Significant Reduction) --------- */
 	:root {
 		--font-size-h1: 36px;
 		--font-size-h2: 32px;
@@ -218,47 +301,59 @@
 		--font-size-banner-p: 16px;
 		--font-size-base: 14px;
 		--menu-item-margin: 30px;
+		--process-image-height: 200px;
 	}
 
-	/* Header */
+	/* --------- Header --------- */
 	.header-logo img {
 		max-width: 180px;
 	}
 
-	/* Buttons */
-	.our-story-area .section-title-wrapper .btn-1.version-2 ,
+	/* --------- Buttons (smaller for mobile) --------- */
+	.our-story-area .section-title-wrapper .btn-1.version-2,
 	.btn-1,
 	.btn-1.version-2,
 	.what-we-do-area .section-bottom-info .btn-1.version-2 {
-		padding: 7.8px 14px;
+		padding: var(--size-button-padding-xs-y) var(--size-button-padding-xs-x);
 	}
 
-	/* Banner */
-	.our-core-services ,
-	.banner-area.secondary-banner.thirdary-banner ,
+	/* --------- Banner & Sections --------- */
+	.our-core-services,
+	.banner-area.secondary-banner.thirdary-banner,
 	.banner-area {
 		padding: 70px 0;
 	}
+	/* --------- Values Section --------- */
+	.icon-box {
+		width: 50px;
+		height: 64px;
+	}
+	.icon-box img {
+		height: 25px;
+		width: 25px;
+	}
 
-	/* Footer layout (stacked columns) */
-	.process-item > div ,
+	/* --------- Footer Layout (Stacked Columns) --------- */
+	.process-item > div,
 	.footer-top .col {
 		flex-basis: 100%;
 	}
-	/* =========================
-	OUR PROCESS SECTION
-	========================= */
+
+	/* --------- Process Timeline (Single Column Layout) --------- */
 	.process-item {
 		flex-wrap: wrap;
 	}
-	.process-content ,
+
+	.process-content,
 	.process-img img {
 		max-width: 100%;
 		width: 100%;
 	}
+
 	.process-item {
 		margin-bottom: 5vw;
 	}
+
 	.process-timeline {
 		margin-top: 8vw;
 	}
@@ -266,49 +361,68 @@
 }
 
 
-/* =========================
-   ≤575px (Mobile)
-   ========================= */
+/* =========================================================
+   BREAKPOINT: ≤575px (Mobile)
+   =========================================================
+   
+   Compact mobile view. Smaller logo, reduced button sizes,
+   further spacing reductions. Optimized for phone screens.
+   
+   ========================================================= */
+
 @media (max-width: 575px) {
 
-	/* Header */
+	/* --------- Header --------- */
 	.header-logo img {
 		max-width: 150px;
 	}
 
-	/* Service card image scaling */
+	/* --------- Service Cards --------- */
+	/* Reduce image opacity for better text readability */
 	.service-card-img {
 		height: 100%;
-		opacity: 0.5;
+		opacity: var(--opacity-medium);
 	}
 
-	/* Menu spacing */
+	/* --------- Navigation Menu --------- */
 	:root {
 		--menu-item-margin: 20px;
 	}
-	/* direct section start */
+
+	/* --------- Direct Contact Section --------- */
 	.direct-area {
 		padding: 40px 0;
 	}
+
 	.direct-area .hero-title {
 		max-width: 100%;
 	}
-	.direct-contact-info{
+
+	.direct-contact-info {
 		margin-left: 0px;
 	}
-	/* contact form  */
+
+	/* --------- Contact Form --------- */
 	.contact-wrapper {
 		padding: 30px 15px;
 	}
+
 }
 
 
-/* =========================
-   ≤480px (Small Mobile)
-   ========================= */
+/* =========================================================
+   BREAKPOINT: ≤480px (Small Mobile)
+   =========================================================
+   
+   Very small phones (e.g., iPhone SE, older devices).
+   Aggressive typography reduction and spacing adjustments.
+   Single-column layout prioritized.
+   
+   ========================================================= */
+
 @media (max-width: 480px) {
 
-	/* Typography scaling */
+	/* --------- Typography (Final Scaling for Small Screens) --------- */
 	:root {
 		--font-size-h1: 30px;
 		--font-size-h2: 28px;
@@ -318,40 +432,48 @@
 		--menu-item-margin: 5px;
 	}
 
-	/* Header */
+	/* --------- Header --------- */
 	.header-logo img {
 		max-width: 150px;
 	}
 
-	/* Why choose layout (single column) */
+	/* --------- Why Choose Cards (Single Column) --------- */
 	.why-choose-cards .col-auto {
 		width: 100%;
 	}
 
-	/* Footer links */
+	/* --------- Footer Links --------- */
 	.footer-links ul li a {
 		font-size: var(--font-size-sm);
 	}
 
-	/* about container section start */
-	.values-section, .our-story-area {
+	/* --------- About Page Sections --------- */
+	.values-section,
+	.our-story-area {
 		margin-bottom: 12vw;
 	}
-	/* =========================
-	OUR PROCESS SECTION
-	========================= */
+
+	/* --------- Process Timeline --------- */
 	.process-item {
 		margin-bottom: 7vw;
 	}
+
 }
 
 
-/* =========================
-   ≤380px (Extra Small)
-   ========================= */
+/* =========================================================
+   BREAKPOINT: ≤380px (Extra Small Mobile)
+   =========================================================
+   
+   Minimum breakpoint for smallest mobile devices and
+   unusual aspect ratios. Final typography reduction and
+   layout optimization.
+   
+   ========================================================= */
+
 @media (max-width: 380px) {
 
-	/* Typography scaling */
+	/* --------- Typography (Absolute Minimum Sizing) --------- */
 	:root {
 		--font-size-h1: 28px;
 		--font-size-h2: 25px;
@@ -361,7 +483,8 @@
 		--menu-item-margin: 0;
 	}
 
-	/* Footer links stacked */
+	/* --------- Footer Navigation (Vertical Stack) --------- */
+	/* Convert horizontal footer links to vertical layout */
 	.footer-links ul li {
 		display: block;
 		margin-bottom: 8px;
@@ -371,8 +494,11 @@
 		margin-bottom: 0;
 	}
 
-	/* Remove underline effect */
+	/* Remove underline hover effect (takes too much space) */
 	.footer-links ul li::before {
 		display: none;
 	}
+
 }
+
+/* ========================================================= */
